@@ -49,3 +49,29 @@ if st.button("Predict Exoplanet Type"):
     test_df = imp.transform(test_df)
     pred = rf.predict(test_df)[0]
     st.success(f"The model predicts: **{pred}**")
+
+
+st.markdown("""
+### 🌍 What Your Prediction Means
+**CONFIRMED:** The data strongly indicates that this object is a verified exoplanet — real and validated by multiple observations.  
+**CANDIDATE:** The signal looks promising, but further observation is needed to confirm if it's truly an exoplanet.  
+**FALSE POSITIVE:** The data pattern likely results from a star, noise, or another non-planetary object.
+
+### 🧾 Explanation of Input Fields
+These are the parameters your prediction is based on:
+- **koi_period** — Time the planet takes to orbit its star (in days).  
+- **koi_duration** — Duration of the transit (in hours).  
+- **koi_depth** — How much the star’s brightness dips when the planet passes in front (in parts per million).  
+- **koi_prad** — Estimated planet radius (in Earth radii).  
+- **koi_teq** — Planet’s equilibrium temperature (in Kelvin).  
+- **koi_insol** — Amount of stellar energy the planet receives (relative to Earth).  
+- **koi_model_snr** — Signal-to-noise ratio of the detection (higher = more reliable).  
+- **koi_impact** — How central the transit path is across the star (0 = perfect center).  
+- **koi_steff** — The star’s surface temperature (Kelvin).  
+- **koi_slogg** — Star’s surface gravity.  
+- **koi_srad** — Star’s radius (in solar radii).  
+- **koi_kepmag** — Kepler brightness magnitude (smaller = brighter).
+
+✨ Your inputs help the AI model decide if the pattern matches that of a real planet or not.
+""")
+
